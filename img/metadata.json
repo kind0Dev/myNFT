@@ -1,0 +1,11 @@
+{
+    "name": "CT",
+    "description": "An adorable CT CAT!",
+    "image": "https://ipfs.io/ipfs/QmXp4m4xGqh5aPUp9S2DE65z6VX2s4xoF2R1x6NuVXT8kP?filename=pngwing.com%20(1).png",
+    "attributes": [
+        {
+            "trait_type": "cuteness",
+            "value": 100
+        }
+    ]
+}
