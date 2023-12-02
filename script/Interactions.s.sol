@@ -8,7 +8,7 @@ import {DeployMyNFT} from "./DeployMyNFT.s.sol";
 // import {MoodNft} from "../src/MoodNft.sol";
 
 contract MintMyNFT is Script {
-     string public constant CT = "https://ipfs.io/ipfs/QmSpgnTuusfWJwCpj9d4kPNKP8yD8n2QocXpD8Pz3kpSkk?filename=metadata.json";
+     string public constant CT = "https://ipfs.io/ipfs/QmNVkinf14q1TbHxnTUdPXA1L8fst8HXpjngrhxEQh5rsE?filename=metadata.json";
 
     uint256 deployerKey;
 

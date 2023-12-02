@@ -20,33 +20,33 @@
 // view & pure functions
 
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
 
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 
-contract MoodNft is ERC721, Ownable {
+contract LovedAnimal is ERC721, Ownable {
     error ERC721Metadata__URI_QueryFor_NonExistentToken();
-    error MoodNft__CantFlipMoodIfNotOwner();
+    error LovedAnimal__CantFlipAnimalIfNotOwner();
 
     enum NFTState {
-        HAPPY,
-        SAD
+        CAT,
+        DOG
     }
 
     uint256 private s_tokenCounter;
-    string private s_sadSvgUri;
-    string private s_happySvgUri;
+    string private s_catSvgUri;
+    string private s_dogSvgUri;
 
     mapping(uint256 => NFTState) private s_tokenIdToState;
 
     event CreatedNFT(uint256 indexed tokenId);
 
-    constructor(string memory sadSvgUri, string memory happySvgUri) ERC721("Mood NFT", "MN") Ownable(msg.sender) {
+    constructor(string memory dogSvgUri, string memory catSvgUri) ERC721("LovedAnimal NFT", "LAN") Ownable(msg.sender) {
         s_tokenCounter = 0;
-        s_sadSvgUri = sadSvgUri;
-        s_happySvgUri = happySvgUri;
+        s_dogSvgUri = dogSvgUri;
+        s_catSvgUri = catSvgUri;
     }
 
     function mintNft() public {
@@ -57,15 +57,15 @@ contract MoodNft is ERC721, Ownable {
         emit CreatedNFT(tokenCounter);
     }
 
-    function flipMood(uint256 tokenId) public {
+    function flipAnimal(uint256 tokenId) public {
         if (getApproved(tokenId) != msg.sender && ownerOf(tokenId) != msg.sender) {
-            revert MoodNft__CantFlipMoodIfNotOwner();
+            revert LovedAnimal__CantFlipMoodIfNotOwner();
         }
 
-        if (s_tokenIdToState[tokenId] == NFTState.HAPPY) {
-            s_tokenIdToState[tokenId] = NFTState.SAD;
+        if (s_tokenIdToState[tokenId] == NFTState.CAT) {
+            s_tokenIdToState[tokenId] = NFTState.DOG;
         } else {
-            s_tokenIdToState[tokenId] = NFTState.HAPPY;
+            s_tokenIdToState[tokenId] = NFTState.CAT;
         }
     }
 
@@ -77,10 +77,10 @@ contract MoodNft is ERC721, Ownable {
         if (ownerOf(tokenId) == address(0)) {
             revert ERC721Metadata__URI_QueryFor_NonExistentToken();
         }
-        string memory imageURI = s_happySvgUri;
+        string memory imageURI = s_catSvgUri;
 
-        if (s_tokenIdToState[tokenId] == NFTState.SAD) {
-            imageURI = s_sadSvgUri;
+        if (s_tokenIdToState[tokenId] == NFTState.DOG) {
+            imageURI = s_dogSvgUri;
         }
         return string(
             abi.encodePacked(
@@ -89,9 +89,9 @@ contract MoodNft is ERC721, Ownable {
                     bytes( // bytes casting actually unnecessary as 'abi.encodePacked()' returns a bytes
                         abi.encodePacked(
                             '{"name":"',
-                            name(), // You can add whatever name here
-                            '", "description":"An NFT that reflects the mood of the owner, 100% on Chain!", ',
-                            '"attributes": [{"trait_type": "moodiness", "value": 100}], "image":"',
+                            name("Animal i love"), // You can add whatever name here
+                            '", "description":"An NFT that you can flip based on which animal you love either CAT or DOG, 100% on Chain!", ',
+                            '"attributes": [{"trait_type": "lovedAnimal", "value": 100}], "image":"',
                             imageURI,
                             '"}'
                         )
@@ -101,12 +101,12 @@ contract MoodNft is ERC721, Ownable {
         );
     }
 
-    function getHappySVG() public view returns (string memory) {
-        return s_happySvgUri;
+    function getCatSVG() public view returns (string memory) {
+        return s_catSvgUri;
     }
 
-    function getSadSVG() public view returns (string memory) {
-        return s_sadSvgUri;
+    function getDogSVG() public view returns (string memory) {
+        return s_dogSvgUri;
     }
 
     function getTokenCounter() public view returns (uint256) {

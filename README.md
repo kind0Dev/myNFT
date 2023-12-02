@@ -6,7 +6,6 @@
 
 <br/>
 <p align="center">
-https://ipfs.io/ipfs/QmXp4m4xGqh5aPUp9S2DE65z6VX2s4xoF2R1x6NuVXT8kP?filename=cat.png
 <img src="./img/cat.png" width="225" alt="NFT Pug">
 <img src="./img/cat2.png" width="225" alt="NFT Happy">
 <img src="./img/cat3.png" width="225" alt="NFT Shiba">
@@ -146,7 +145,7 @@ make createSubscription ARGS="--network sepolia"
 To get the base64 of an image, you can use the following command:
 
 ```
-echo "data:image/svg+xml;base64,$(base64 -i ./images/dynamicNft/happy.svg)"
+echo "data:image/svg+xml;base64,$(base64 -i ./img/cat.svg)"
 ```
 
 Then, you can get the base64 encoding of the json object by placing the imageURI into `happy_image_uri.json` then running:

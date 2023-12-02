@@ -10,7 +10,7 @@ contract MyNFTTest is Test{
     DeployMyNFT public deployer;
     MyNFT public myNFT;
     address public USER = makeAddr("user");
-    string public constant CT = "https://ipfs.io/ipfs/QmSpgnTuusfWJwCpj9d4kPNKP8yD8n2QocXpD8Pz3kpSkk?filename=metadata.json";
+     string public constant CT = "https://ipfs.io/ipfs/QmNVkinf14q1TbHxnTUdPXA1L8fst8HXpjngrhxEQh5rsE?filename=metadata.json";
 
     function setUp() public {
         deployer = new DeployMyNFT();

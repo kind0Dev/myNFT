@@ -1,7 +1,7 @@
 {
     "name": "CT",
     "description": "An adorable CT CAT!",
-    "image": "https://ipfs.io/ipfs//QmZ55dxzng6XDHRD3iaMMpkVG8EcC5MTCWmRXTY4tvz4sw?filename=cat2.png",
+    "image": "https://ipfs.io/ipfs/QmZ55dxzng6XDHRD3iaMMpkVG8EcC5MTCWmRXTY4tvz4sw?filename=cat2.png",
     "attributes": [
         {
             "trait_type": "finest",
