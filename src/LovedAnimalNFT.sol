@@ -26,7 +26,7 @@ import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 
-contract LovedAnimal is ERC721, Ownable {
+contract LovedAnimalNFT is ERC721, Ownable {
     error ERC721Metadata__URI_QueryFor_NonExistentToken();
     error LovedAnimal__CantFlipAnimalIfNotOwner();
 
@@ -59,7 +59,7 @@ contract LovedAnimal is ERC721, Ownable {
 
     function flipAnimal(uint256 tokenId) public {
         if (getApproved(tokenId) != msg.sender && ownerOf(tokenId) != msg.sender) {
-            revert LovedAnimal__CantFlipMoodIfNotOwner();
+            revert LovedAnimal__CantFlipAnimalIfNotOwner();
         }
 
         if (s_tokenIdToState[tokenId] == NFTState.CAT) {
@@ -88,8 +88,8 @@ contract LovedAnimal is ERC721, Ownable {
                 Base64.encode(
                     bytes( // bytes casting actually unnecessary as 'abi.encodePacked()' returns a bytes
                         abi.encodePacked(
-                            '{"name":"',
-                            name("Animal i love"), // You can add whatever name here
+                            '{"name"Animal i love"',
+                            name(), // You can add whatever name here
                             '", "description":"An NFT that you can flip based on which animal you love either CAT or DOG, 100% on Chain!", ',
                             '"attributes": [{"trait_type": "lovedAnimal", "value": 100}], "image":"',
                             imageURI,
