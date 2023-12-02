@@ -1,0 +1,11 @@
+{
+    "name": "CT",
+    "description": "An adorable CT CAT!",
+    "image": "https://ipfs.io/ipfs/QmeM7URCxoLM4UhJuTHh9LDVbZNy9pQEHB84Dnn4GgAcVR?filename=cat3.png",
+    "attributes": [
+        {
+            "trait_type": "adorable",
+            "value": 100
+        }
+    ]
+}
