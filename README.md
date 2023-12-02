@@ -6,7 +6,7 @@
 
 <br/>
 <p align="center">
-"https://ipfs.io/ipfs//QmZ55dxzng6XDHRD3iaMMpkVG8EcC5MTCWmRXTY4tvz4sw?filename=cat2.png"
+https://ipfs.io/ipfs//QmZ55dxzng6XDHRD3iaMMpkVG8EcC5MTCWmRXTY4tvz4sw?filename=cat2.png
 <img src="./img/cat.png" width="225" alt="NFT Pug">
 <img src="./img/cat2.png" width="225" alt="NFT Happy">
 <img src="./img/cat3.png" width="225" alt="NFT Shiba">
