@@ -33,10 +33,10 @@ format :; forge fmt
 
 anvil :; anvil -m 'test test test test test test test test test test test junk' --steps-tracing --block-time 1
 
-NETWORK_ARGS := --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
+NETWORK_ARGS := --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --gas-limit 2000000000000000 --gas-price 1200000000000000000 --broadcast
 
 ifeq ($(findstring --network sepolia,$(ARGS)),--network sepolia)
-	NETWORK_ARGS := --rpc-url $(SEPOLIA_RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(ETHERSCAN_API_KEY) -vvvv
+	NETWORK_ARGS := --rpc-url $(SEPOLIA_RPC_URL) --private-key $(PRIVATE_KEY) --gas-limit 200000000000 --gas-price 12000000000000 --broadcast --verify --etherscan-api-key $(ETHERSCAN_API_KEY) -vvvv
 endif
 
 deploy:
@@ -45,12 +45,12 @@ deploy:
 mint:
 	@forge script script/Interactions.s.sol:MintMyNFT ${NETWORK_ARGS}
 
-deployMood:
-	@forge script script/DeployMoodNft.s.sol:DeployMoodNft $(NETWORK_ARGS)
+deployAnimalFlip:
+	@forge script script/DeployAnimalNFT.s.sol:DeployAnimalNFT $(NETWORK_ARGS)
 
-mintMoodNft:
-	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
+mintLovedAnimalNFT:
+	@forge script script/Interactions.s.sol:MintLovedAnimalNFT $(NETWORK_ARGS)
 
-flipMoodNft:
-	@forge script script/Interactions.s.sol:FlipMoodNft $(NETWORK_ARGS)
+flipLovedAnimalNFT:
+	@forge script script/Interactions.s.sol:FlipLovedAnimalNFT $(NETWORK_ARGS)
 

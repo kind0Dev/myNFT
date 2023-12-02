@@ -74,17 +74,17 @@ contract LovedAnimalNFTTest is StdCheats, Test {
         );
     }
 
-    // function testEventRecordsCorrectTokenIdOnMinting() public {
-    //     uint256 currentAvailableTokenId = moodNft.getTokenCounter();
+    function testEventRecordsCorrectTokenIdOnMinting() public {
+        uint256 currentAvailableTokenId = lovedAnimalNFT.getTokenCounter();
 
-    //     vm.prank(USER);
-    //     vm.recordLogs();
-    //     moodNft.mintNft();
-    //     Vm.Log[] memory entries = vm.getRecordedLogs();
+        vm.prank(USER);
+        vm.recordLogs();
+        lovedAnimalNFT.mintNft();
+        Vm.Log[] memory entries = vm.getRecordedLogs();
 
-    //     bytes32 tokenId_proto = entries[1].topics[1];
-    //     uint256 tokenId = uint256(tokenId_proto);
+        bytes32 tokenId_proto = entries[1].topics[1];
+        uint256 tokenId = uint256(tokenId_proto);
 
-    //     assertEq(tokenId, currentAvailableTokenId);
-    // }
+        assertEq(tokenId, currentAvailableTokenId);
+    }
 }

@@ -6,9 +6,11 @@
 
 <br/>
 <p align="center">
-<img src="./img/cat.png" width="225" alt="NFT Pug">
-<img src="./img/cat2.png" width="225" alt="NFT Happy">
-<img src="./img/cat3.png" width="225" alt="NFT Shiba">
+<img src="./img/cat.png" width="225" alt="NFT">
+<img src="./img/cat2.png" width="225" alt="NFT">
+<img src="./img/cat3.png" width="225" alt="NFT">
+<img src="./img/cat.svg" width="225" alt="NFT cat svg">
+<img src="./img/dog.svg" width="225" alt="NFT dog svg">
 </p>
 <br/>
 
